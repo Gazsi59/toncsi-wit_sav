@@ -15,8 +15,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/wit-ai/node-wit",
-  "author": "The Wit Team <help@wit.ai>",
+  "repository": "https://github.com/Gazsi59/Wit-Toncsi",
+  "author": "The Toncsi Team",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "node-uuid": "^1.4.7"
