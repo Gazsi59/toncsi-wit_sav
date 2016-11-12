@@ -1,5 +1,6 @@
 'use strict';
 
+
 let Wit = null;
 let interactive = null;
 try {
