@@ -1,27 +1,5 @@
 {
-  "name": "node-wit",
-  "version": "4.1.0",
-  "description": "Wit.ai Node.js SDK",
-  "keywords": [
-    "wit",
-    "wit.ai",
-    "bot",
-    "botengine",
-    "bots",
-    "nlp",
-    "automation"
-  ],
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "https://github.com/Gazsi59/Wit-Toncsi.git",
-  "author": "The Toncsi Team",
-  "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "node-uuid": "^1.4.7"
-  },
-  "engines": {
-    "node": ">=4.0.0"
-  }
-}
+  "name": "Wit-Toncsi-app",
+  "description": "A React application which reports weather forecasts using the OpenWeatherMap API found at http://openweathermap.org/api.",
+  "repository": "https://github.com/Gazsi59/Wit-Toncsi-app.git"
+} 
