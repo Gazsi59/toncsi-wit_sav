@@ -1,211 +1,177 @@
-# Wit Node.js SDK [![npm](https://img.shields.io/npm/v/Gazsi59t.svg)](https://www.npmjs.com/package/Gazsi59)
+# Wit-Facebook
+[![Build Status](https://travis-ci.org/hunkim/Wit-Facebook.svg?branch=master)](https://travis-ci.org/hunkim/Wit-Facebook)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/hunkim/Wit-Facebook)
 
-`Gazsi59` is the Node.js SDK for [Wit.ai](https://wit.ai).
-
-## Install
-
-In your Node.js project, run:
-
-```bash
-npm install --save Gazsi59
-```
-
-## Quickstart
-
-Run in your terminal:
+Wit.ai and Facebook Messenger Integration Example
+## Initial Installation
+Fork this repository and clone.
 
 ```bash
-# Node.js <= 6.x.x, add the flag --harmony_destructuring
-node --harmony_destructuring examples/basic.js <MY_TOKEN>
-# Node.js >= v6.x.x
-node examples/basic.js <MY_TOKEN>
+git clone https://github.com/{forked}/Wit-Facebook.git
+cd Wit-Facebook
+npm install
+ ```
+
+## Configuration
+### Wit Setting
+
+Go to https://wit.ai/home and create a wit app for you. Read https://wit.ai/docs/quickstart and see a demo at: https://wit.ai/sungkim/weather/stories.
+Then, go to the setting in your wit app and get the token id.
+
+![image](https://cloud.githubusercontent.com/assets/901975/14757067/58f03050-0922-11e6-813d-831df8614303.png)
+
+Test the bot.js with your WIT_TOKEN, and make sure the bot is working.
+```bash
+ $WIT_TOKEN=insert_token_here node bot
+ ```
+
+ You can type your text, and see bot's response.
+
+```bash
+ Bot testing mode.
+> What is the weather?                        # your msg
+Executing merge action
+Executing say with message: Where exactly?
+Where exactly?                                # bot
+> In Seoul?                                   # your msg
+Executing merge action
+Executing action: fetch-weather
+Executing say with message: I see it’s sunny in Seoul today!
+I see it’s sunny in Seoul today!              # bot
+>
 ```
 
-See `examples` folder for more examples.
+### Facebook Page Creation
+First you need to make a Facebook Page at https://www.facebook.com/pages/create/?ref_type=pages_browser, since the messenger bot will be connected to your facebook page.
 
-### Messenger integration example
+### Facebook App Creation
 
-See `examples/messenger.js` for a thoroughly documented tutorial.
+* Add a new app at https://developers.facebook.com/quickstarts/?platform=web. Name it and click  "Create New Facebook App ID":
 
-### Overview
+![image](https://cloud.githubusercontent.com/assets/901975/14749905/b557bf80-08f4-11e6-8218-2dd8dc7d529c.png)
 
-The Wit module provides a Wit class with the following methods:
-* `message` - the Wit [message](https://wit.ai/docs/http/20160330#get-intent-via-text-link) API
-* `converse` - the low-level Wit [converse](https://wit.ai/docs/http/20160330#converse-link) API
-* `runActions` - a higher-level method to the Wit converse API
+* Add email, select category, an add web site. (Any URL is OK):
 
-You can also require a library function to test out your bot in the terminal. `require('Gazsi59').interactive`
+![image](https://cloud.githubusercontent.com/assets/901975/14749960/ef969b94-08f4-11e6-9fa6-3294a47fcf4e.png)
 
-### Wit class
+### Facebook Messenger Setting
 
-The Wit constructor takes the following parameters:
-* `accessToken` - the access token of your Wit instance
-* `actions` - (optional if only using `.message()`) the object with your actions
-* `logger` - (optional) the object handling the logging.
-* `apiVersion` - (optional) the API version to use instead of the recommended one
+* From https://developers.facebook.com/apps/, select the created app:
 
-The `actions` object has action names as properties, and action functions as values.
-Action implementations must return Promises (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-You must provide at least an implementation for the special action `send`.
+![image](https://cloud.githubusercontent.com/assets/901975/14757262/32399512-0924-11e6-924f-6b52d6303ecf.png)
 
-* `send` takes 2 parameters: `request` and `response`
-* custom actions take 1 parameter: `request`
+* Select Messenger and get started:
 
-#### Request
-* `sessionId` (string) - a unique identifier describing the user session
-* `context` (object) - the object representing the session state
-* `text` (string) - the text message sent by your end-user
-* `entities` (object) - the entities extracted by Wit's NLU
+![image](https://cloud.githubusercontent.com/assets/901975/14750051/6733be3e-08f5-11e6-9da7-a35eb2720298.png)
 
-#### Response
-* `text` (string) - The text your bot needs to send to the user (as described in your Wit.ai Stories)
-* `quickreplies`
+* Select the page you have created and get the Page Access Token:
 
-The `logger` object should implement the methods `debug`, `info`, `warn` and `error`.
-They can receive an arbitrary number of parameters to log.
-For convenience, we provide a `Logger` class, taking a log level parameter
+![image](https://cloud.githubusercontent.com/assets/901975/14757285/78e65248-0924-11e6-9ffb-e6226a7d434f.png)
 
-Example:
-```js
-const {Wit, log} = require('Gazsi59');
+### Launch Server in Heroku
 
-const client = new Wit({
-  accessToken: MY_TOKEN,
-  actions: {
-    send(request, response) {
-      return new Promise(function(resolve, reject) {
-        console.log(JSON.stringify(response));
-        return resolve();
-      });
-    },
-    myAction({sessionId, context, text, entities}) {
-      console.log(`Session ${sessionId} received ${text}`);
-      console.log(`The current context is ${JSON.stringify(context)}`);
-      console.log(`Wit extracted ${JSON.stringify(entities)}`);
-      return Promise.resolve(context);
-    }
-  },
-  logger: new log.Logger(log.DEBUG) // optional
-});
+* Run heroku create and push to heroku:
+
+```bash
+cd Wit-Facebook
+heroku create
+git push heroku master
 ```
 
-### message
+* Alternatively, click the button below:
 
-The Wit [message](https://wit.ai/docs/http/20160330#get-intent-via-text-link) API.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Takes the following parameters:
-* `message` - the text you want Wit.ai to extract the information from
-* `context` - (optional) the object representing the session state
+* You need to set WIT_TOKEN and FB_PAGE_TOKEN. You can set your FB_VERIFY_TOKEN which is a token used to verify the server. The default value is "just_do_it". Set the WIT_TOKEN, FB_PAGE_TOKEN, and FB_VERIFY_TOKEN config variables.
 
-Example:
-```js
-const client = new Wit({accessToken: 'MY_TOKEN'});
-client.message('what is the weather in London?', {})
-.then((data) => {
-  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
-})
-.catch(console.error);
+![image](https://cloud.githubusercontent.com/assets/901975/14750245/627a5d20-08f6-11e6-9672-f19b3719eb2b.png)
+
+* Make sure "Deploy to Heroku" is green and click the "View" button:
+
+![image](https://cloud.githubusercontent.com/assets/901975/14750332/d59fad46-08f6-11e6-9f24-16fff6b98898.png)
+
+* If it is set correctly, you will see something like this from https://{yourspecificedname}.herokuapp.com/:
+"Only those who will risk going too far can possibly find out how far one can go." - T.S. Eliot"
+
+### Facebook Webhooks Setting
+
+* The final step is to put this server URL in the Facebook app setting. From https://developers.facebook.com/apps/, select your app and messenger. You will see Webhooks:
+
+![image](https://cloud.githubusercontent.com/assets/901975/14750370/0d98de98-08f7-11e6-8c6b-85733dab4fb4.png)
+
+* Select "Setup Webhooks", and you will see callback URL and verify token. For the callback URL put your Hherokuapp URL + "/webhook". For example, my callback URL is https://fbwitbot.herokuapp.com/webhook.
+
+* Type the Verify Token that you set in the Heruku app setting. If you haven't set, the default value is "just_do_it".
+
+* Click all items in the Subscription Fields.
+
+![image](https://cloud.githubusercontent.com/assets/901975/14750713/c64e4ee0-08f8-11e6-8745-2ebc746ae367.png)
+
+* Then, you will see the green complete!
+
+![image](https://cloud.githubusercontent.com/assets/901975/14750734/e59c1016-08f8-11e6-9333-fbb7c92dd342.png)
+
+* You may need to select the Facebook Page one more time and get the access token.
+
+![image](https://cloud.githubusercontent.com/assets/901975/14757285/78e65248-0924-11e6-9ffb-e6226a7d434f.png)
+
+* You need to fire this command to activate your messanger.
+
+```bash
+curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<PAGE_ACCESS_TOKEN>"
+```
+* You may see:
+```bash
+{"success":true}
 ```
 
-### runActions
+* Finally, go to the Facebook page you created/selected, and talk to your bot. Enjoy!
 
-A higher-level method to the Wit converse API.
-`runActions` resets the last turn on new messages and errors.
+![image](https://cloud.githubusercontent.com/assets/901975/14750786/20ddf0a4-08f9-11e6-9c9c-719d1020e5d8.png)
 
-Takes the following parameters:
-* `sessionId` - a unique identifier describing the user session
-* `message` - the text received from the user
-* `context` - the object representing the session state
-* `maxSteps` - (optional) the maximum number of actions to execute (defaults to 5)
+![image](https://cloud.githubusercontent.com/assets/901975/14751164/2a485e2a-08fb-11e6-9a98-fd79bb0773f7.png)
 
-Example:
+## Testing
 
-```js
-const sessionId = 'my-user-session-42';
-const context0 = {};
-client.runActions(sessionId, 'what is the weather in London?', context0)
-.then((context1) => {
-  console.log('The session state is now: ' + JSON.stringify(context1));
-  return client.runActions(sessionId, 'and in Brussels?', context1);
-})
-.then((context2) => {
-  console.log('The session state is now: ' + JSON.stringify(context2));
-})
-.catch((e) => {
-  console.log('Oops! Got an error: ' + e);
-});
+### Jest
+ ```bash
+ npm test
+ ```
+
+### Bot testing
+ ```bash
+ $WIT_TOKEN=insert_token_here node bot
+ ```
+
+### Server testing
+First, run the server
+```bash
+ $WIT_TOKEN=insert_token_here node index
+ ```
+ In other shell, fire this command:
+ ```bash
+ $curl -X POST -H "Content-Type: application/json" -d @__tests__/msg.json http://localhost:8445/webhook
 ```
 
-See `./examples/messenger.js` for a full-fledged example
+You will see something like this:
+```
+I'm wating for you @8445
 
-### converse
-
-The low-level Wit [converse](https://wit.ai/docs/http/20160330#converse-link) API.
-
-Takes the following parameters:
-* `sessionId` - a unique identifier describing the user session
-* `message` - the text received from the user
-* `context` - the object representing the session state
-* `reset` - (optional) whether to reset the last turn
-
-Example:
-```js
-client.converse('my-user-session-42', 'what is the weather in London?', {})
-.then((data) => {
-  console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
-})
-.catch(console.error);
+Executing merge action
+Executing action: fetch-weather
+Executing say with message: I see it’s sunny in Hong Kong today!
+I see it’s sunny in Hong Kong today!
+Oops! An error occurred while forwarding the response to USER_ID : An active access token must be used to query information about the current user.
+Waiting for futher messages.
 ```
 
-### interactive
+The USER_ID error is OK, but make sure the bot says, "I see it’s sunny in Hong Kong today!".
 
-Starts an interactive conversation with your bot.
+## Credit
+I reused soruce code and configuration from:
+* https://github.com/wit-ai/node-wit
+* https://github.com/jw84/messenger-bot-tutorial
+* https://developers.facebook.com/docs/messenger-platform/quickstart
 
-Example:
-```js
-const {interactive} = require('Gazsi59');
-interactive(client);
-```
-
-See the [docs](https://wit.ai/docs) for more information.
-
-
-## Changing the API version
-
-On 2016, May 11th, the /message API was updated to reflect the new Bot Engine model: intent are now entities.
-We updated the SDK to the latest version: 20160516.
-You can target a specific version by passing the `apiVersion` parameter when creating the `Wit` object.
-
-```json
-{
-  "msg_id" : "e86468e5-b9e8-4645-95ce-b41a66fda88d",
-  "_text" : "hello",
-  "entities" : {
-    "intent" : [ {
-      "confidence" : 0.9753469589149633,
-      "value" : "greetings"
-    } ]
-  }
-}
-```
-
-Version prior to 20160511 will return the old format:
-
-```json
-{
-  "msg_id" : "722fc79b-725c-4ca1-8029-b7f57ff88f54",
-  "_text" : "hello",
-  "outcomes" : [ {
-    "_text" : "hello",
-    "confidence" : null,
-    "intent" : "default_intent",
-    "entities" : {
-      "intent" : [ {
-        "confidence" : 0.9753469589149633,
-        "value" : "greetings"
-      } ]
-    }
-  } ],
-  "WARNING" : "DEPRECATED"
-}
-```
+## Contribution
+We welcome your comments and PRs!
