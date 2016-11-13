@@ -1,14 +1,14 @@
-# Wit-Toncsi
-[![Build Status](https://travis-ci.org/hunkim/Wit-Toncsik.svg?branch=master)](https://travis-ci.org/hunkim/Wit-Toncsik)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/hunkim/Wit-Toncsik)
+# Gazsi59
+[![Build Status](https://travis-ci.org/hunkim/Gazsi59.svg?branch=master)](https://travis-ci.org/hunkim/Gazsi59)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7442b6c4eb6b48a890d751c0da5a3b6d)](https://www.codacy.com/app/hunkim/Gazsi59)
 
 Wit.ai and Facebook Messenger Integration Example
 ## Initial Installation
 Fork this repository and clone.
 
 ```bash
-git clone https://github.com/{forked}/Wit-Toncsi.git
-cd Wit-Toncsi
+git clone https://github.com/{forked}/Gazsi59.git
+cd Gazsi59
 npm install
  ```
 
@@ -73,7 +73,7 @@ First you need to make a Facebook Page at https://www.facebook.com/pages/create/
 * Run heroku create and push to heroku:
 
 ```bash
-cd Wit-Toncsi
+cd Gazsi59
 heroku create
 git push heroku master
 ```
@@ -169,7 +169,7 @@ The USER_ID error is OK, but make sure the bot says, "I see it’s sunny in Hong
 
 ## Credit
 I reused soruce code and configuration from:
-* https://github.com/wit-ai/node-wit
+* https://github.com/wit-ai/Gazsi59
 * https://github.com/jw84/messenger-bot-tutorial
 * https://developers.facebook.com/docs/messenger-platform/quickstart
 
