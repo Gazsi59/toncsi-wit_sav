@@ -6,11 +6,11 @@ Wit.ai and Facebook Messenger Integration Example
 ## Initial Installation
 Fork this repository and clone.
 
-```bash
-git clone https://github.com/{forked}/Wit-Facebook.git
-cd Wit-Facebook
-npm install
- ```
+## ```bash
+## git clone https://github.com/{forked}/Wit-Facebook.git
+## cd Wit-Facebook
+## npm install
+##  ```
 
 ## Configuration
 ### Wit Setting
