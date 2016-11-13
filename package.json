@@ -1,5 +1,37 @@
 {
-  "name": "Gazsi59",
-  "description": "A React application which reports weather forecasts using the OpenWeatherMap API found at http://openweathermap.org/api.",
-  "repository": "https://github.com/Gazsi59/Wit-Toncsi"
+  "name": "Wit-Toncsi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "bot": "node bot.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": ["core-js/.*", "sshpk/.*"]
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "node-wit": "^3.2.2",
+    "node-uuid": "^1.4.7",
+    "request": "^2.72.0",
+    "babel-core": "^6.0.0",
+    "babel-jest": "^6.0.1",
+    "babel-polyfill": "^6.1.4",
+    "bl": "^1.0.0",
+    "jest-cli": "^0.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gazsi59/Wit-Toncsi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gazsi59/Wit-Toncsi/issues"
+  },
+  "homepage": "https://github.com/Gazsi59/Wit-Toncsik#readme"
 } 
