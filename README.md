@@ -1,13 +1,13 @@
-# Wit Node.js SDK [![npm](https://img.shields.io/npm/v/node-wit.svg)](https://www.npmjs.com/package/node-wit)
+# Wit Node.js SDK [![npm](https://img.shields.io/npm/v/Gazsi59t.svg)](https://www.npmjs.com/package/Gazsi59)
 
-`node-wit` is the Node.js SDK for [Wit.ai](https://wit.ai).
+`Gazsi59` is the Node.js SDK for [Wit.ai](https://wit.ai).
 
 ## Install
 
 In your Node.js project, run:
 
 ```bash
-npm install --save node-wit
+npm install --save Gazsi59
 ```
 
 ## Quickstart
@@ -34,7 +34,7 @@ The Wit module provides a Wit class with the following methods:
 * `converse` - the low-level Wit [converse](https://wit.ai/docs/http/20160330#converse-link) API
 * `runActions` - a higher-level method to the Wit converse API
 
-You can also require a library function to test out your bot in the terminal. `require('node-wit').interactive`
+You can also require a library function to test out your bot in the terminal. `require('Gazsi59').interactive`
 
 ### Wit class
 
@@ -67,7 +67,7 @@ For convenience, we provide a `Logger` class, taking a log level parameter
 
 Example:
 ```js
-const {Wit, log} = require('node-wit');
+const {Wit, log} = require('Gazsi59');
 
 const client = new Wit({
   accessToken: MY_TOKEN,
@@ -163,7 +163,7 @@ Starts an interactive conversation with your bot.
 
 Example:
 ```js
-const {interactive} = require('node-wit');
+const {interactive} = require('Gazsi59');
 interactive(client);
 ```
 
