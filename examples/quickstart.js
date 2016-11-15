@@ -8,8 +8,8 @@ try {
   Wit = require('../').Wit;
   interactive = require('../').interactive;
 } catch (e) {
-  Wit = require('Wit-Toncsi').Wit;
-  interactive = require('Wit-Toncsi').interactive;
+  Wit = require('toncsi-wit').Wit;
+  interactive = require('toncsi-wit').interactive;
 }
 
 const accessToken = (() => {
