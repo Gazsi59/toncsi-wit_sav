@@ -1,5 +1,5 @@
 {
-  "name": "wit-toncsi",
+  "name": "toncsi-wit",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "Wit-Toncsi": "^3.10.8",
+    "toncsi-wit": "^3.10.8",
     "node-uuid": "^1.4.7",
     "request": "^2.72.0",
     "babel-core": "^6.0.0",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Gazsi59/Wit-Toncsi.git"
+    "url": "https://github.com/Gazsi59/toncsi-wit.git"
   },
   "bugs": {
-    "url": "https://github.com/Gazsi59/Wit-Toncsi/issues"
+    "url": "https://github.com/Gazsi59/toncsi-wit/issues"
   },
-  "homepage": "https://github.com/Gazsi59/Wit-Toncsi#readme"
+  "homepage": "https://github.com/Gazsi59/toncsi-wit#readme"
 }  
