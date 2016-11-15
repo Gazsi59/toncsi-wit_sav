@@ -1,4 +1,4 @@
-# Wit Node.js SDK [![npm](https://img.shields.io/npm/v/Wit-Toncsi.svg)](https://www.npmjs.com/package/Wit-Toncsi)
+# Wit Node.js SDK [![npm](https://img.shields.io/npm/v/toncsi-wit.svg)](https://www.npmjs.com/package/toncsi-wit)
 
 `Wit-Toncsi` is the Node.js SDK for [Wit.ai](https://wit.ai).
 
