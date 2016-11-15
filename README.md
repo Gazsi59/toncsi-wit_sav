@@ -1,13 +1,13 @@
 # Wit Node.js SDK [![npm](https://img.shields.io/npm/v/toncsi-wit.svg)](https://www.npmjs.com/package/toncsi-wit)
 
-`Wit-Toncsi` is the Node.js SDK for [Wit.ai](https://wit.ai).
+`toncsi-wit` is the Node.js SDK for [Wit.ai](https://wit.ai).
 
 ## Install
 
 In your Node.js project, run:
 
 ```bash
-npm install --save Wit-Toncsi
+npm install --save toncsi-wit
 ```
 
 ## Quickstart
@@ -34,7 +34,7 @@ The Wit module provides a Wit class with the following methods:
 * `converse` - the low-level Wit [converse](https://wit.ai/docs/http/20160330#converse-link) API
 * `runActions` - a higher-level method to the Wit converse API
 
-You can also require a library function to test out your bot in the terminal. `require('Wit-Toncsi').interactive`
+You can also require a library function to test out your bot in the terminal. `require('toncsi-wit').interactive`
 
 ### Wit class
 
@@ -67,7 +67,7 @@ For convenience, we provide a `Logger` class, taking a log level parameter
 
 Example:
 ```js
-const {Wit, log} = require('Wit-Toncsi');
+const {Wit, log} = require('toncsi-wit');
 
 const client = new Wit({
   accessToken: MY_TOKEN,
@@ -163,7 +163,7 @@ Starts an interactive conversation with your bot.
 
 Example:
 ```js
-const {interactive} = require('Wit-Toncsi');
+const {interactive} = require('toncsi-wit');
 interactive(client);
 ```
 
