@@ -1,32 +1,27 @@
 {
   "name": "toncsi-wit",
-  "version": "1.0.0",
-  "description": "",
+  "version": "4.1.0",
+  "description": "Wit.ai Node.js SDK",
+  "keywords": [
+    "wit",
+    "wit.ai",
+    "bot",
+    "botengine",
+    "bots",
+    "nlp",
+    "automation"
+  ],
   "main": "index.js",
-  "author": "",
-  "license": "MIT",
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "unmockedModulePathPatterns": ["core-js/.*", "sshpk/.*"]
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/wit-ai/toncsi-wit",
+  "author": "The Wit Team <help@wit.ai>",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "toncsi-wit": "^3.10.8",
-    "node-uuid": "^1.4.7",
-    "request": "^2.72.0",
-    "babel-core": "^6.0.0",
-    "babel-jest": "^6.0.1",
-    "babel-polyfill": "^6.1.4",
-    "bl": "^1.0.0",
-    "jest-cli": "^0.7.1"
+    "isomorphic-fetch": "^2.2.1",
+    "node-uuid": "^1.4.7"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Gazsi59/toncsi-wit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Gazsi59/toncsi-wit/issues"
-  },
-  "homepage": "https://github.com/Gazsi59/toncsi-wit#readme"
-}  
+  "engines": {
+    "node": ">=4.0.0"
+  }
+} 
