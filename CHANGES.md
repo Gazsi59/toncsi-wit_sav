@@ -5,7 +5,7 @@
 
 ### Breaking changes
 
-- `interactive` is no longer a function on the `Wit` client. Instead, you require it from the library: `require('Wit-Toncsi').interactive`
+- `interactive` is no longer a function on the `Wit` client. Instead, you require it from the library: `require('toncsi-wit').interactive`
 - `runActions` now resets the last turn on new messages and errors.
 
 ## v4.0.0
