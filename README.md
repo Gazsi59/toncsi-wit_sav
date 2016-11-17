@@ -70,7 +70,7 @@ Example:
 const {Wit, log} = require('toncsi-wit');
 
 const client = new Wit({
-  accessToken: MY_TOKEN,
+  OSPXNZRK36HNE7UV3QL2PD6IKFSBFG6I: MY_TOKEN,
   actions: {
     send(request, response) {
       return new Promise(function(resolve, reject) {
