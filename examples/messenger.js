@@ -27,8 +27,8 @@ try {
   Wit = require('../').Wit;
   log = require('../').log;
 } catch (e) {
-  Wit = require('toncsi-wit').Wit;
-  log = require('toncsi-wit').log;
+  Wit = require('Gazsi59').Wit;
+  log = require('Gazsi59').log;
 }
 
 // Webserver parameter
