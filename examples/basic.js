@@ -13,7 +13,7 @@ try {
 
 const accessToken = (() => {
   if (process.argv.length !== 3) {
-    console.log('usage: node examples/basic.js VFD7X3EUFNWFFP7XAMRB2YJLQTHCDAUI');
+    console.log('usage: node examples/basic.js <VFD7X3EUFNWFFP7XAMRB2YJLQTHCDAUI>');
     process.exit(1);
   }
   return process.argv[2];
