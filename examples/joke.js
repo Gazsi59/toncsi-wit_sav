@@ -14,7 +14,7 @@ try {
 
 const accessToken = (() => {
   if (process.argv.length !== 3) {
-    console.log('usage: node examples/joke.js OSPXNZRK36HNE7UV3QL2PD6IKFSBFG6I');
+    console.log('usage: node examples/joke.js <OSPXNZRK36HNE7UV3QL2PD6IKFSBFG6I>');
     process.exit(1);
   }
   return process.argv[2];
