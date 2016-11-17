@@ -99,7 +99,7 @@ Takes the following parameters:
 
 Example:
 ```js
-const client = new Wit({accessToken: 'MY_TOKEN'});
+const client = new Wit({OSPXNZRK36HNE7UV3QL2PD6IKFSBFG6I: 'MY_TOKEN'});
 client.message('what is the weather in London?', {})
 .then((data) => {
   console.log('Yay, got Wit.ai response: ' + JSON.stringify(data));
